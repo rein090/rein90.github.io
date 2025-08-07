@@ -1,0 +1,167 @@
+body {
+    font-family: "Arial", sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #e67e22;
+    background-image: linear-gradient(to bottom, #d35400, #e67e22);
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    color: #000000;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
+}
+
+.header-animation h1 {
+    animation: pulse 3s ease-in-out infinite alternate;
+    animation-delay: 0.5s;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.header-animation h1:hover {
+    animation-play-state: paused;
+}
+
+.intro {
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+    text-align: center;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    color: #000000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.content-block {
+    animation: slideIn 0.8s cubic-bezier(0.25, 0.1, 0.25, 1.2) forwards;
+    animation-delay: calc(0.2s * var(--delay-index, 1));
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: #000000;
+}
+
+.content-block:hover {
+    animation-play-state: paused;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+hr.expand {
+    animation: expand 1s ease-in-out forwards;
+    animation-delay: 0.4s;
+    overflow: hidden;
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #000000, transparent);
+    margin: 30px 0;
+    opacity: 0.3;
+}
+
+.section-title {
+    font-size: 1.5em;
+    margin: 30px 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+    color: #000000;
+}
+
+ol, ul {
+    padding-left: 25px;
+    margin: 15px 0;
+}
+
+li {
+    margin-bottom: 10px;
+    position: relative;
+    color: #000000;
+}
+
+ul li::before {
+    content: "•";
+    color: #000000;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+strong {
+    color: #000000;
+    font-weight: bold;
+}
+
+.anim-delay-1 { --delay-index: 1; }
+.anim-delay-2 { --delay-index: 2; }
+.anim-delay-3 { --delay-index: 3; }
+
+/* Анимации */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes expand {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.animated-element {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+.construction-image {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.construction-interface {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.image-caption {
+    font-style: italic;
+    color: #333;
+    margin-top: 8px;
+    font-size: 0.9em;
+}
